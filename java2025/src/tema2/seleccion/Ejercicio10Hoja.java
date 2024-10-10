@@ -25,8 +25,8 @@ public class Ejercicio10Hoja {
         } else if (disc < 0) {
             System.out.println("No tiene solución real");
         } else if (disc > 0) {
-            solucion1 = -b + Math.sqrt(disc) / (2 * a);
-            solucion2 = -b - Math.sqrt(disc) / (2 * a);
+            solucion1 = (-b + Math.sqrt(disc)) / (2 * a);
+            solucion2 = (-b - Math.sqrt(disc)) / (2 * a);
             System.out.println("La solución 1 es " + solucion1);
             System.out.println("La solución 2 es " + solucion2);
         }
