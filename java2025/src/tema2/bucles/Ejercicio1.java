@@ -55,7 +55,6 @@ public class Ejercicio1 {
             }
             numero++;
         }
-        */
 
         //Pida por teclado un contraseña mientras la longitud sea menor de 8 caracteres
         // password.length() --> devuelve la longitud del String password
@@ -65,8 +64,38 @@ public class Ejercicio1 {
             System.out.println("Introduce contraseña:");
             password = sc.nextLine(); //Lo que nos acerca a que se cumpla es pedir por teclado
         }
+         System.out.println("Tu contraseña válida es " + password);
+        */
 
+
+        //Pida por teclado una contraseña mientras la longitud sea menor de 10 caracteres
+        //y tenga al menos una letra mayúscula
+        // password.toUpperCase() pasa la cadena a mayúsculas
+        // password.toLowerCase() pasa la cadena a minúsculas
+
+
+        String password = "hola";
+        Scanner sc = new Scanner(System.in);
+        //Mientras pass igual passMinuscula  Y  pass menor 10
+        while ( (password.equals(password.toLowerCase()) ) || (password.length() < 10) ) {
+            System.out.println("Introduce contraseña:");
+            password = sc.nextLine(); //Lo que nos acerca a que se cumpla es pedir por teclado
+        }
         System.out.println("Tu contraseña válida es " + password);
+
+
+        //Lo que yo quiero es que el bucle termine cuando
+        // password.length() >= 10 && !password.equals(password.toLowerCase())
+        //Lo contrario de eso, que es lo que pongo en el while
+        // password.length() < 10 || password.equals(password.toLowerCase())
+
+
+
+
+
+
+
+
 
 
 
