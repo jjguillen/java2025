@@ -1,5 +1,7 @@
 package tema2.bucles;
 
+import java.util.Scanner;
+
 public class Ejercicio1 {
 
     public static void main(String[] args) {
@@ -30,9 +32,8 @@ public class Ejercicio1 {
         int numero = 10;
         while (numero <= 100) {
             System.out.println(numero);
-            numero+=10;
+            numero+=10; //numero = numero + 10
         }
-        */
 
         //Muestra los números que son decenas del 1 al 100
         int numero = 1;
@@ -40,8 +41,33 @@ public class Ejercicio1 {
             if (numero % 10 == 0) { //Comprobar si el número es o no múltiplo de 10
                 System.out.println(numero);
             }
+            numero++; // numero = numero + 1
+        }
+
+        //Del 1 al 200 muestra los números impares que no sean múltiplos de 7
+        //Impares -> numero % 2 != 0
+        //Múltiplos de 7 -> numero % 7 == 0
+
+        int numero = 1;
+        while (numero <= 200) {
+            if ( (numero % 2 != 0) && (numero % 7 != 0) ) {
+                System.out.println(numero);
+            }
             numero++;
         }
+        */
+
+        //Pida por teclado un contraseña mientras la longitud sea menor de 8 caracteres
+        // password.length() --> devuelve la longitud del String password
+        String password = "1";
+        Scanner sc = new Scanner(System.in);
+        while (password.length() < 8) {
+            System.out.println("Introduce contraseña:");
+            password = sc.nextLine(); //Lo que nos acerca a que se cumpla es pedir por teclado
+        }
+
+        System.out.println("Tu contraseña válida es " + password);
+
 
 
 
