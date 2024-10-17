@@ -46,7 +46,6 @@ public class EjemploFor {
             System.out.println("Dime un nombre");
             sc.nextLine();
         }
-        */
 
         //Pregunta por teclado 5 nombres, y pintalos seguidos
         //Tenemos que ir guardando los nombres en una variable
@@ -61,6 +60,22 @@ public class EjemploFor {
         }
 
         System.out.println(cadenaNombres);
+        */
+
+        //Pinta por pantalla la tabla de multiplicar del número 7 usando for
+        //1x7=7
+        //2x7=14
+        //...
+        //10x7=70
+        for(int i=1; i <= 10; i++) {
+            System.out.println(i + "x7=" + (i*7));
+        }
+
+        //Pinta la tabla del 4 al revés
+        //4x10=40
+        //4x9=36
+        //...
+        //4x1=4
 
 
 
