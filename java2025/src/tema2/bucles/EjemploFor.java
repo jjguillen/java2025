@@ -76,6 +76,10 @@ public class EjemploFor {
         //4x9=36
         //...
         //4x1=4
+        for(int i=10; i > 0; i--) {
+            System.out.println(i + "x4=" + (i*4));
+        }
+
 
 
 
