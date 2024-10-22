@@ -19,23 +19,42 @@ public class CubitusHumerus1 {
         int tiradaH;
         int tiradaC;
 
-        tiradaH = (int) (Math.random() * 20) + 1;
-        tiradaC = (int) (Math.random() * 20) + 1;
-        System.out.println("TiradaH " + tiradaH);
-        System.out.println("TiradaC " + tiradaC);
+        int contadorGanaC=0;
+        int contadorGanaH=0;
+        for(int i=0; i < 10; i++) {
+            tiradaH = (int) (Math.random() * 20) + 1;
+            tiradaC = (int) (Math.random() * 20) + 1;
+            System.out.println("TiradaH " + tiradaH);
+            System.out.println("TiradaC " + tiradaC);
 
-        if ( (tiradaH == 9) && (tiradaC != 9) ) {
-            System.out.println("Gana Humerus");
-        } else if ( (tiradaC == 9) && (tiradaH != 9) ) {
-            System.out.println("Gana Cubitus");
-        } else if ( (tiradaC == 9) && (tiradaH == 9) ) {
-            System.out.println("Empate");
-        } else if (tiradaC > tiradaH) {
-            System.out.println("Gana Cubitus");
-        } else if (tiradaH > tiradaC) {
-            System.out.println("Gana Humerus");
-        } else if (tiradaC == tiradaH) {
-            System.out.println("Empate");
+            if ((tiradaH == 9) && (tiradaC != 9)) {
+                System.out.println("Gana Humerus");
+                contadorGanaH++;
+            } else if ((tiradaC == 9) && (tiradaH != 9)) {
+                System.out.println("Gana Cubitus");
+                contadorGanaC++;
+            } else if ((tiradaC == 9) && (tiradaH == 9)) {
+                System.out.println("Empate");
+            } else if (tiradaC > tiradaH) {
+                System.out.println("Gana Cubitus");
+                contadorGanaC++;
+            } else if (tiradaH > tiradaC) {
+                System.out.println("Gana Humerus");
+                contadorGanaH++;
+            } else if (tiradaC == tiradaH) {
+                System.out.println("Empate");
+            }
+        }
+
+        System.out.println("Partidas Cubitus " + contadorGanaC);
+        System.out.println("Partidas Humerus " + contadorGanaH);
+
+        if (contadorGanaC > contadorGanaH) {
+            System.out.println("Ganador total Cubitus");
+        } else if (contadorGanaH > contadorGanaC) {
+            System.out.println("Ganador total Humerus");
+        } else {
+            System.out.println("Empatan y se toman unas cervezas");
         }
 
 
