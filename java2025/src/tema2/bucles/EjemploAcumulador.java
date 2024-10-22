@@ -11,7 +11,7 @@ public class EjemploAcumulador {
 
         for(int i=0; i < 5; i++) {
             precio = sc.nextInt();
-            total = total + precio;
+            total = total + precio; // total += precio
         }
 
         System.out.println("El total es " + total);
