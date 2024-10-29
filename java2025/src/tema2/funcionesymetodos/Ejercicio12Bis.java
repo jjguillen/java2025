@@ -10,21 +10,23 @@ public class Ejercicio12Bis {
 
         for(int i = 1; i <= 4; i++) {
 
-            // For para poner espacios
+            // j 1,2,3
             for(int j = 1; j < i; j++) {
                 System.out.print(" ");
             }
 
-            // For para poner *
-            for(int j = 1; j <= 5 - i; j++) {
+            //for (int j = 1; j <= 5 - i; j++) {
+            // j 4 i 1 -> 4
+            // j 4 i 2 -> 3
+            // j 4 i 3 -> 2
+            // j 4 i 4 -> 1
+            for (int j = 4; j >= i; j--) {
                 System.out.print("*");
             }
 
-            // For para poner *
-            for(int j = 1; j <= 4 - i; j++) {
+            for (int j = 4; j > i; j--) {
                 System.out.print("*");
             }
-
             System.out.println();
         }
 
