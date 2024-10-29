@@ -1,8 +1,13 @@
-package tema2.funcionesymetodos;
+package tema2.hojaEjercicios;
 
-public class Ejercicio12 {
-
+public class Ejercicio11 {
     public static void main(String[] args) {
+
+        // Fila1    *   3e - 1*
+        // Fila2   **   2e - 2*
+        // Fila3  ***   1e - 3*
+        // Fila4 ****   0e - 4*
+
 
         for(int i = 1; i <= 4; i++) {
 
@@ -13,11 +18,6 @@ public class Ejercicio12 {
 
             // For para poner *
             for(int j = 1; j <= i; j++) {
-                System.out.print("*");
-            }
-
-            // For para poner *
-            for(int j = 1; j <= i-1; j++) {
                 System.out.print("*");
             }
 
