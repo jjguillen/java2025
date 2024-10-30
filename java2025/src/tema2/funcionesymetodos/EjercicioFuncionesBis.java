@@ -64,7 +64,7 @@ public class EjercicioFuncionesBis {
             } else if (opcion == 5) {
                 System.out.println("Adiós");
             } else {
-                System.out.println("Opción incorrecta"); 
+                System.out.println("Opción incorrecta");
             }
 
         }
