@@ -15,7 +15,6 @@ public class Ejercicio19 {
 
     public static void main(String[] args) {
 
-        //Método que determine si un número es o no primo
         boolean esPrimo = false;
 
         esPrimo = esPrimo(197);
