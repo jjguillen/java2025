@@ -27,7 +27,7 @@ public class Ejercicio1Opcion1 {
      */
     public static boolean esPrimo(int num) {
         boolean esPrimo = true;
-        for (int i = 2; i < Math.sqrt(num); i++) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
                 esPrimo = false;
                 break; //Una vez encuentre un divisor que termine
