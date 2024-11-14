@@ -20,5 +20,7 @@ public class Ejercicio3 {
             5. Diga si alguna zona tiene una humedad inferior al 30%
 
          */
+
+        double sensores[][] = new double[5][2];
     }
 }
