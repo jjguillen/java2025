@@ -52,6 +52,7 @@ public class Ejercicio1 {
                 break;
             }
         }
+        //En esa columna no hay ninguna ficha, entonces la pongo en el fondo
         if (colocada == false) {
             if (numJugador==1)
                 tablero[tablero.length-1][j] = 1;
@@ -62,10 +63,63 @@ public class Ejercicio1 {
         return true;
     }
 
+    public static boolean comprobarHV(int tablero[][], int jugador) {
+        boolean ganador = false;
+
+        //Comprobar ganador en horizontal
+        for(int i=0; i<tablero.length; i++) {
+            for(int j=0; j<tablero[i].length-3; j++) {
+                if (tablero[i][j] == jugador && tablero[i][j+1] == jugador
+                && tablero[i][j+2] == jugador && tablero[i][j+3] == jugador) {
+                    ganador = true;
+                    break;
+                }
+            }
+        }
+
+        //Comprobar ganador en vertical
+        for(int i=0; i<tablero.length-3; i++) {
+            for(int j=0; j<tablero[i].length; j++) {
+                if (tablero[i][j] == jugador && tablero[i+1][j] == jugador
+                        && tablero[i+2][j] == jugador && tablero[i+3][j] == jugador) {
+                    ganador = true;
+                    break;
+                }
+            }
+        }
+
+        //Comprobar diagonal hacia la derecha
+        for(int i=0; i<tablero.length-3; i++) {
+            for(int j=0; j<tablero[i].length-3; j++) {
+                if (tablero[i][j] == jugador && tablero[i+1][j+1] == jugador
+                        && tablero[i+2][j+2] == jugador && tablero[i+3][j+3] == jugador) {
+                    ganador = true;
+                    break;
+                }
+            }
+        }
+
+        //Comprobar diagonal hacia la izquierda
+        for(int i=0; i<tablero.length-3; i++) {
+            for(int j=3; j<tablero[i].length; j++) {
+                if (tablero[i][j] == jugador && tablero[i+1][j-1] == jugador
+                        && tablero[i+2][j-2] == jugador && tablero[i+3][j-3] == jugador) {
+                    ganador = true;
+                    break;
+                }
+            }
+        }
+
+        return ganador;
+    }
+
+
+
     public static void main(String[] args) {
 
         int j1, j2;
         int tablero[][] = new int[6][7];
+        boolean winj1, winj2;
 
         pintar(tablero);
 
@@ -75,13 +129,31 @@ public class Ejercicio1 {
             //Jugador 1
             j1 = pedirFichaJugador(1);
             colocarFicha(tablero, j1, 1);
+
+            winj1 = comprobarHV(tablero, 1);
+            if (winj1) {
+                System.out.println("Ganador J1");
+                break;
+            }
+
             //Jugador 2
             j2 = pedirFichaJugador(2);
             colocarFicha(tablero, j2, 2);
 
+            winj2 = comprobarHV(tablero, 2);
+            if (winj2) {
+                System.out.println("Ganador J2");
+                break;
+            }
+
             //Pintar tablero
             pintar(tablero);
+
         }
+
+        pintar(tablero);
+
+
 
 
 
