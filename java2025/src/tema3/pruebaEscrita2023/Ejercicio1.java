@@ -71,10 +71,14 @@ public class Ejercicio1 {
     public static int[][] traspuesta(int matriz[][]) {
         int matrizT[][] = new int[5][5];
 
-        for(int i=0; i<matriz[0].length; i++) {
-            for(int j=0; j<matriz.length; j++) {
-                matrizT[j][i] = matriz[i][j];
+        try {
+            for (int i = 0; i < matriz[0].length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    matrizT[j][i] = matriz[i][j];
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return matrizT;
