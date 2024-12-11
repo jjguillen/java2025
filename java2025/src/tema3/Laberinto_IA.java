@@ -2,7 +2,15 @@ package tema3;
 
 import java.util.Scanner;
 
-public class Laberinto {
+public class Laberinto_IA {
+
+    public static void limpiarPantalla() {
+        try {
+            new ProcessBuilder("clear").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            System.out.println("?");
+        }
+    }
 
     /**
      * Generar número aleatorio entre dos números
@@ -15,21 +23,25 @@ public class Laberinto {
     }
 
     /**
-     * Pinta el laberinto generado y el texto para elegir opción
+     * Pinta el laberinto generado
      * @param lab
      */
     public static void pintar(char lab[][]) {
+        /*
+        try {
+            Thread.sleep(250);  // Pausa de 2 segundos para mostrar el mensaje anterior.
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        limpiarPantalla();
+        */
         for(int i=0; i<lab.length; i++) {
             for(int j=0; j<lab[i].length; j++) {
                 System.out.print(lab[i][j]);
             }
             System.out.println();
         }
-        System.out.println("Elige movimiento");
-        System.out.println("1. Derecha");
-        System.out.println("2. Izquierda");
-        System.out.println("3. Abajo");
-        System.out.println("4. Arriba");
+        System.out.println();
     }
 
     /**
@@ -104,6 +116,49 @@ public class Laberinto {
         return salida;
     }
 
+    /**
+     * Calcula la mejor dirección para llegar a la salida
+     * @param salida
+     * @return
+     */
+    public static int caminoMasCorto(int salida[], int posXJug, int posYJug) {
+        int distancia = 0;
+        int distanciaMenor = 1000;
+        int mejorDireccion = 1;
+
+        for(int i=1; i <= 4; i++) {
+            switch (i) {
+                case 1:
+                    //Derecha
+                    posYJug++;
+                    break;
+                case 2:
+                    //Izquierda
+                    posYJug--;
+                    break;
+                case 3:
+                    //Abajo
+                    posXJug++;
+                    break;
+                case 4:
+                    //Arriba
+                    posXJug--;
+                    break;
+            }
+            if (posXJug >= 0 && posXJug <= 19 && posYJug >= 0 && posYJug <= 19) {
+                distancia = Math.abs(posXJug - salida[0]) + Math.abs(posYJug - salida[1]);
+                if (distancia < distanciaMenor) {
+                    distanciaMenor = distancia;
+                    mejorDireccion = i;
+                }
+            }
+
+        }
+
+        System.out.println(distanciaMenor);
+        return mejorDireccion;
+    }
+
 
     public static void main(String[] args) {
         char laberinto[][] = new char[20][20];
@@ -140,7 +195,7 @@ public class Laberinto {
             //Mover jugador
             //try - catch para detectar que no se sale del laberinto
             try {
-                direccion = Integer.parseInt(sc.nextLine());
+                direccion = caminoMasCorto(coordSalida, posXJug, posYJug);
                 if (direccion > 0 && direccion < 5) {
                     switch (direccion) {
                         case 1:
