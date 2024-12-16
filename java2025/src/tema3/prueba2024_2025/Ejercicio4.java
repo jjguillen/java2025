@@ -22,6 +22,10 @@ public class Ejercicio4 {
         }
     }
 
+    /**
+     * Pinta la matriz
+     * @param lab
+     */
     public static void pintar(char lab[][]) {
         for (int i = 0; i < lab.length; i++) {
             for (int j = 0; j < lab[i].length; j++) {
