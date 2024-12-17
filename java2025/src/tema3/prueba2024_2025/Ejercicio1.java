@@ -96,11 +96,9 @@ public class Ejercicio1 {
     public static boolean diagonalesIguales(int mat[][]) {
         boolean iguales = true;
         for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat[i].length; j++) {
-                if (mat[i][j] != mat[i][mat.length - i - 1]) {
+            if (mat[i][i] != mat[i][mat.length - i - 1]) {
                     iguales = false;
                     break;
-                }
             }
         }
 
@@ -122,7 +120,7 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
 
-        int matriz[][] = new int[5][5];
+        int matriz[][] = new int[15][15];
         int opcion=0;
         int aux=0;
 
