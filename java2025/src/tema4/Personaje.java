@@ -2,7 +2,6 @@ package tema4;
 
 public class Personaje {
 
-
     private String nombre;
     private String clase;
     private String sexo;

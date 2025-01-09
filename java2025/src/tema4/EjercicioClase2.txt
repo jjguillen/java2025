@@ -7,11 +7,11 @@
     Para crear un enum -> enum TipoArma { ESPADA, MARTILLO, HACHA }
 
     Constructor:
-    - con todas las propiedades
+    - con todas las propiedades -> new Arma("Espadón", TipoArma.ESPADA, 44);
     - vacío sin valores (que tome los valores por defecto) -> dejar en blanco el constructor
 
     Métodos:
-    - Getter y Setter y toString
+    - Getters, Setters y toString
     - public void golpear(Personaje personaje) {
         personaje.setVida(personaje.getVida() - this.golpe);
       }
