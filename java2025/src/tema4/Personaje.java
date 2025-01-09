@@ -7,6 +7,7 @@ public class Personaje {
     private String sexo;
     private Integer vida;
 
+
     public Personaje(String nombre, Integer vida, String sexo, String clase) {
         this.nombre = nombre;
         this.vida = vida;
