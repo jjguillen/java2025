@@ -1,10 +1,9 @@
 package tema4;
-import tema4.Personaje;
 
 public class Test {
     public static void main(String[] args) {
 
-        Personaje per = new Personaje(100,100, "JJ2", "Bárabaro");
+        PersonajeVideo per = new PersonajeVideo(100,100, "JJ2", "Bárabaro");
 
         System.out.println(per.nombre + " - " + per.vida);
         per.quitarVida(35);
