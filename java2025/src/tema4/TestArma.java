@@ -5,7 +5,7 @@ public class TestArma {
         Arma espada = new Arma("Espada de fuego", Arma.TipoArma.ESPADA, 25);
         Arma martillo = new Arma("Martillo maldito", Arma.TipoArma.MARTILLO, 40);
 
-        Personaje soldado = new Personaje("Ariel", 120, "Hombre", "Soldado");
+        Personaje soldado = new Personaje("Ariel", 120, "Hombre", "Soldado", martillo);
 
         System.out.println(soldado);
 

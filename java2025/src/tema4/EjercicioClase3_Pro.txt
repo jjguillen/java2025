@@ -1,5 +1,5 @@
 1. Modifica la clase Personaje
- - Añande una propiedad nueva de tipo Arma
+ - Añade una propiedad nueva de tipo Arma
  - Cambia el constructor para añadirle una Arma
  - Añade getter y setter de la nueva propiedad
  - Borra el método toString y vuelve a generarlo para que pinte el Arma

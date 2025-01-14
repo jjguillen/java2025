@@ -6,13 +6,15 @@ public class Personaje {
     private String clase;
     private String sexo;
     private Integer vida;
+    private Arma arma;
 
 
-    public Personaje(String nombre, Integer vida, String sexo, String clase) {
+    public Personaje(String nombre, Integer vida, String sexo, String clase, Arma arma) {
         this.nombre = nombre;
         this.vida = vida;
         this.sexo = sexo;
         this.clase = clase;
+        this.arma = arma;
     }
 
     public Personaje() {
@@ -20,6 +22,7 @@ public class Personaje {
         this.clase = "Humano";
         this.vida = 10;
         this.sexo = "NoDefinido";
+        this.arma = null;
     }
 
     public String getNombre() {
@@ -54,6 +57,14 @@ public class Personaje {
         this.vida = vida;
     }
 
+    public Arma getArma() {
+        return arma;
+    }
+
+    public void setArma(Arma arma) {
+        this.arma = arma;
+    }
+
 
     @Override
     public String toString() {
@@ -62,7 +73,14 @@ public class Personaje {
         sb.append(", clase='").append(clase).append('\'');
         sb.append(", sexo='").append(sexo).append('\'');
         sb.append(", vida=").append(vida);
+        sb.append(", arma=").append(arma);
         sb.append('}');
         return sb.toString();
     }
+
+    public void golpear(Personaje personaje) {
+        this.arma.golpear(personaje);
+    }
+
+
 }
