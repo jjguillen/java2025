@@ -7,6 +7,9 @@ public class Personaje {
     private String sexo;
     private Integer vida;
     private Arma arma;
+    private static final int maxVida=200; //No puede cambiar
+
+    private static int numPersonajes=0; //Propiedad común a todos los objetos Personaje
 
 
     public Personaje(String nombre, Integer vida, String sexo, String clase, Arma arma) {
@@ -15,6 +18,7 @@ public class Personaje {
         this.sexo = sexo;
         this.clase = clase;
         this.arma = arma;
+        Personaje.numPersonajes++;
     }
 
     public Personaje() {
@@ -23,6 +27,7 @@ public class Personaje {
         this.vida = 10;
         this.sexo = "NoDefinido";
         this.arma = null;
+        Personaje.numPersonajes++;
     }
 
     public String getNombre() {
@@ -65,6 +70,13 @@ public class Personaje {
         this.arma = arma;
     }
 
+    public static int getNumPersonajes() {
+        return numPersonajes;
+    }
+
+    public static void setNumPersonajes(int numPersonajes) {
+        Personaje.numPersonajes = numPersonajes;
+    }
 
     @Override
     public String toString() {

@@ -59,6 +59,7 @@ public class Arma {
      */
     public void golpear(Personaje personaje) {
         personaje.setVida(personaje.getVida() - this.golpe);
+        //personaje.vida = personaje.vida - this.golpe;
     }
 
 
