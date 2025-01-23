@@ -32,6 +32,8 @@ public class Ejercicio4 {
                 System.out.print(lab[i][j]);
             }
             System.out.println();
+
+
         }
     }
 
