@@ -4,6 +4,15 @@ public class Ejercicio3 {
 
     public static void cryptVocales(StringBuffer sb, boolean encriptar) {
         if (encriptar) {
+            /*
+            String str = sb.toString();
+            str.replace("a","@")
+                    .replace("e","&")
+                    .replace("i","$")
+                    .replace("o","º")
+                    .replace("u","#");
+            */
+
             for(int i=0; i < sb.length(); i++) {
                 switch (sb.charAt(i)) {
                     case 'a': sb.setCharAt(i, '@'); break;
@@ -31,9 +40,17 @@ public class Ejercicio3 {
      * @param sb
      */
     public static void primeraAlFinal(StringBuffer sb) {
-        String primeraLetra = sb.substring(0,1);
+        //Mover la primera al final
+        String primeraLetra = sb.substring(0,1); //Primera letra
         sb.deleteCharAt(0);
-        sb.append(primeraLetra);
+        sb.append(primeraLetra); //Añade por el final
+
+        //Intercambiando
+        /*
+        String ultima = sb.substring(sb.length()-1);
+        sb.setCharAt(sb.length()-1, sb.charAt(0));
+        sb.setCharAt(0, ultima.charAt(0));
+        */
     }
 
     /**
@@ -43,7 +60,14 @@ public class Ejercicio3 {
     public static void ultimaAlPrincipio(StringBuffer sb) {
         String ultimaLetra = sb.substring(sb.length()-1);
         sb.deleteCharAt(sb.length()-1);
-        sb.insert(0,ultimaLetra);
+        sb.insert(0,ultimaLetra); //Añade por el principio
+
+        //Intercambiando
+        /*
+        String ultima = sb.substring(sb.length()-1);
+        sb.setCharAt(sb.length()-1, sb.charAt(0));
+        sb.setCharAt(0, ultima.charAt(0));
+        */
     }
 
     /**

@@ -8,6 +8,10 @@ public class Ejercicio2 {
         return (int) (Math.random() * (mayor - menor + 1)) + menor;
     }
 
+    public static void dadoFuego(int tirJ1, int tirJ2, boolean escudoJ1) {
+        escudoJ1 = false;
+    }
+
     public static void main(String[] args) {
 
         int vidaJ1 = 40, vidaJ2 = 40;
@@ -94,9 +98,9 @@ public class Ejercicio2 {
                 case 5:
                     System.out.println("Dado de escudo");
                     if (tiradaJ1 < tiradaJ2) {
-                        escudoJ1 = true;
-                    } else if (tiradaJ1 > tiradaJ2) {
                         escudoJ2 = true;
+                    } else if (tiradaJ1 > tiradaJ2) {
+                        escudoJ1 = true;
                     }
                     break;
             }
