@@ -1,6 +1,7 @@
 package tema5;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class Enemigo {
 
@@ -71,6 +72,9 @@ public class Enemigo {
     public void morir() {
         this.vida = 0.0;
         Enemigo.numEnemigos--;
+        Logger logger = MiLogger.getLogger();
+        logger.info("Enemigo " + this.nombre + " ha muerto");
+
     }
 
     public void reducirVida(Integer vida) {
@@ -81,6 +85,7 @@ public class Enemigo {
     public void transferirVida(Enemigo ene) {
         this.vida += ene.vida;
         ene.setVida(0.0);
+        MiLogger.getLogger().info("Transfiriendo vida");
     }
 
     public static Integer getNumEnemigos() {
@@ -101,6 +106,7 @@ public class Enemigo {
         System.out.println(Enemigo.getNumEnemigos());
         en1.morir();
         System.out.println(Enemigo.getNumEnemigos());
+        en2.morir();
 
 
     }
