@@ -80,4 +80,13 @@ public class Partida {
         return null;
     }
 
+    public Jugador buscarJugador2(Jugador jugador) {
+        //Buscar en qué posición hay un objeto igual a ese
+        int posicion = this.jugadores.indexOf(jugador);
+        if (posicion < 0)
+            return null; //Not found
+        else
+            return this.jugadores.get(posicion);
+    }
+
 }
