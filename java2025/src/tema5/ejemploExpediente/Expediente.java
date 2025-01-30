@@ -1,6 +1,7 @@
 package tema5.ejemploExpediente;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -138,6 +139,24 @@ public class Expediente {
      * @return boolean indicando si titula o no
      */
     public boolean titula() {
+        Integer numSuspensos = this.getNumSuspensos();
+
+        //Si FPB -> puede tener dos suspensos
+        if (this.modalidad.equals(Modalidad.FPB)) {
+            if (numSuspensos > 2) {
+                return false;
+            } else
+                return true;
+        } else {
+            //Si no FPB no puede tener ningún suspenso
+            if (numSuspensos != 0)
+                return false;
+            else
+                return true;
+        }
+    }
+
+    private Integer getNumSuspensos() {
         Integer numSuspensos = 0;
 
         //Recorro las calificaciones y para cada una veo la nota final si >= 5
@@ -157,19 +176,40 @@ public class Expediente {
         }
         */
 
-         */
-        //Si FPB -> puede tener dos suspensos
-        if (this.modalidad.equals(Modalidad.FPB)) {
-            if (numSuspensos > 2) {
-                return false;
-            } else
-                return true;
-        } else {
-            //Si no FPB no puede tener ningún suspenso
-            if (numSuspensos != 0)
-                return false;
-            else
-                return true;
-        }
+        return numSuspensos;
     }
+
+    /**
+     * Suma la notafinal de cada NotaCurso de las calificaciones
+     * y lo divide entre el total de calificaciones
+     * @return
+     */
+    public Double getMediaExpediente() {
+        Double media = 0.0;
+        for(NotasCurso nota : this.calificaciones) {
+            media += nota.getNotaFinal();
+        }
+        return media / this.calificaciones.size();
+    }
+
+    /**
+     * Devuelve los años transcurridos entre la fecha de nacimiento y la fecha actual
+     * Para fechas utilizaremos LocalDate
+     * @return
+     */
+    public Integer getEdad() {
+        LocalDate fechaActual = LocalDate.now();
+        //Perido de tiempo entre la fecha de nacimiento y la fecha actual
+        Period periodo = Period.between(this.fechaNacimiento, fechaActual);
+        return periodo.getYears();
+    }
+
+    /**
+     * Si la edad es mayor o igual que 18 devuelve true, sino devuelve false
+     * @return
+     */
+    public boolean esMayorEdad() {
+        return (this.getEdad() >= 18);
+    }
+
 }
