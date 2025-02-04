@@ -28,6 +28,7 @@ public class Cuadrado extends Figura{
 
     @Override
     public Double area() {
+        System.out.println("Hey soy un cuadrado");
         return Math.pow(this.lado, 2);
     }
 }

@@ -51,7 +51,7 @@ public class Agenda {
             System.out.println("Agenda vacía");
         } else {
             for(Contacto c: this.contactos) {
-                System.out.println(c.getNombre() + " -> " + c.getTelefono());
+                System.out.println(c);
             }
         }
         System.out.println("---------------------------------");
@@ -63,6 +63,7 @@ public class Agenda {
      * @return
      */
     public Contacto buscarContacto(String nombre) {
+        //indexOf busca llamando a equals de la clase correspondiente (Contacto)
         int posicion = this.contactos.indexOf(new Contacto(nombre,""));
         if (posicion < 0)
             return null;

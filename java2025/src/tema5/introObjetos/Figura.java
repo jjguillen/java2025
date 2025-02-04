@@ -26,6 +26,7 @@ public class Figura {
 
     //Como no tiene código este método será abstracto
     public Double area() {
+        System.out.println("YO SOY TU PADRE");
         return 0.0;
     }
 }

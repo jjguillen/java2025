@@ -39,6 +39,7 @@ public class Rectangulo extends Figura {
 
     @Override
     public Double area() {
+        System.out.println("Yo un rectangulo");
         return this.ladoMayor * this.ladoMenor;
     }
 }
