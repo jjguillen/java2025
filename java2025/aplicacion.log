@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-23T18:41:36.596640500Z</date>
+  <millis>1737657696596</millis>
+  <nanos>640500</nanos>
+  <sequence>0</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En1 ha muerto</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-23T18:42:38.568199309Z</date>
+  <millis>1737657758568</millis>
+  <nanos>199309</nanos>
+  <sequence>0</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En1 ha muerto</message>
+</record>
+<record>
+  <date>2025-01-23T18:42:38.604209212Z</date>
+  <millis>1737657758604</millis>
+  <nanos>209212</nanos>
+  <sequence>1</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En2 ha muerto</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-23T18:43:40.259979192Z</date>
+  <millis>1737657820259</millis>
+  <nanos>979192</nanos>
+  <sequence>0</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En1 ha muerto</message>
+</record>
+<record>
+  <date>2025-01-23T18:43:40.293992503Z</date>
+  <millis>1737657820293</millis>
+  <nanos>992503</nanos>
+  <sequence>1</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En2 ha muerto</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-23T18:45:03.741490057Z</date>
+  <millis>1737657903741</millis>
+  <nanos>490057</nanos>
+  <sequence>0</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>transferirVida</method>
+  <thread>1</thread>
+  <message>Transfiriendo vida</message>
+</record>
+<record>
+  <date>2025-01-23T18:45:03.781902308Z</date>
+  <millis>1737657903781</millis>
+  <nanos>902308</nanos>
+  <sequence>1</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En1 ha muerto</message>
+</record>
+<record>
+  <date>2025-01-23T18:45:03.782548290Z</date>
+  <millis>1737657903782</millis>
+  <nanos>548290</nanos>
+  <sequence>2</sequence>
+  <logger>tema5.MiLogger</logger>
+  <level>INFO</level>
+  <class>tema5.Enemigo</class>
+  <method>morir</method>
+  <thread>1</thread>
+  <message>Enemigo En2 ha muerto</message>
+</record>
+</log>

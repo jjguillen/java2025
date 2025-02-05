@@ -22,7 +22,7 @@ public class Dibujo {
         return sb.toString();
     }
 
-    public void addFigura(Figura figura) {
+    public void addFigura(Figura figura) throws Exception{
         this.figuras.add(figura);
     }
 

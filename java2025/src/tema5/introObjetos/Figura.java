@@ -1,6 +1,6 @@
 package tema5.introObjetos;
 
-public class Figura {
+public abstract class Figura {
 
     protected String color; //Privado para todos, publico para clases hijas
 
@@ -25,8 +25,5 @@ public class Figura {
     }
 
     //Como no tiene código este método será abstracto
-    public Double area() {
-        System.out.println("YO SOY TU PADRE");
-        return 0.0;
-    }
+    public abstract Double area();
 }
