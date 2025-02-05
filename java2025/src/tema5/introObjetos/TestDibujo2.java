@@ -1,5 +1,8 @@
 package tema5.introObjetos;
 
+/**
+ * Clase para probar DibujoCuadrados
+ */
 public class TestDibujo2 {
 
     public static void main(String[] args) throws Exception {
