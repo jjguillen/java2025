@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class CuentaBancaria {
 
-    protected final String numeroCuenta;
+    protected String numeroCuenta;
     protected Double saldo;
     protected boolean tieneTCredito;
     protected boolean tieneTDebito;
     protected Double comisionesMes;
-    protected final Double modifComisiones;
+    protected Double modifComisiones;
 
     public CuentaBancaria(Double saldo, boolean tieneTCredito, boolean tieneTDebito,
                           Double comisionesMes, Double modifComisiones) {
@@ -28,6 +28,9 @@ public class CuentaBancaria {
         this.tieneTDebito = otra.tieneTDebito;
         this.comisionesMes = otra.comisionesMes;
         this.modifComisiones = otra.modifComisiones;
+    }
+
+    public CuentaBancaria() {
     }
 
     private static int generarNumeroAleatorio(int mayor, int menor) {
@@ -80,6 +83,10 @@ public class CuentaBancaria {
 
     public Double getModifComisiones() {
         return modifComisiones;
+    }
+
+    public void setNumeroCuenta(String numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
 
     @Override

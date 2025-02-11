@@ -17,5 +17,16 @@ public class Test {
         //Hacer ingresos y retiradas en las cuentas
         //Imprimir el objeto Banco
 
+        Banco banco = new Banco();
+        banco.addCuentaBancaria(cAhorro);
+        banco.addCuentaBancaria(cCorriente);
+        banco.addCuentaBancaria(cJoven);
+
+        cAhorro.ingresar(10000.0);
+        cCorriente.ingresar(20000.0);
+        cJoven.retirar(100.0);
+
+        System.out.println(banco);
+
     }
 }
