@@ -12,5 +12,10 @@ public class Test {
         System.out.println(cCorriente);
         System.out.println(cJoven);
 
+        //Clase Banco
+        //Meter las tarjetas al banco
+        //Hacer ingresos y retiradas en las cuentas
+        //Imprimir el objeto Banco
+
     }
 }
