@@ -26,5 +26,12 @@ public class Test {
 
             e.trabajar();
         }
+
+        Empleado emp1 = new Empleado("Emp1", 1100.0);
+        Encargado enc1 = new Encargado("Enc1", 1500.0);
+
+        //emp1 = enc1; //El hijo se puede convertir al padre
+        //enc1 = (Encargado) emp1; //El padre no se puede convertir al hijo
+
     }
 }

@@ -15,6 +15,12 @@ public abstract class Empleado {
         this.salario = salario;
     }
 
+    public Empleado(Empleado emple) {
+        this.nombre = emple.nombre;
+        this.edad = emple.edad;
+        this.salario = emple.salario;
+    }
+
     public String getNombre() {
         return nombre;
     }
