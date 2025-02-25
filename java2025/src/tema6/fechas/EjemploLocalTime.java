@@ -19,6 +19,7 @@ public class EjemploLocalTime {
                 .minusMinutes(10)
                 .plusSeconds(20));
 
+        LocalTime horaCanarias = LocalTime.now().minusHours(1);
 
         //Pintar horas
         System.out.println(ahora);
@@ -33,10 +34,13 @@ public class EjemploLocalTime {
         System.out.println(salida.isAfter(ahora));
         System.out.println(ahora.equals(ahora.plusSeconds(1).minusSeconds(1)));
 
-        //Parsear string -> formato por defecto
+        //Parsear String -> Generar una hora o una fecha con un formato por defecto
+
+        //HH:MM:SS
         LocalTime hora = LocalTime.parse("22:00");
         System.out.println(hora);
 
+        //YYYY-mm-dd
         LocalDate fecha = LocalDate.parse("1999-12-31");
         System.out.println(fecha);
 
