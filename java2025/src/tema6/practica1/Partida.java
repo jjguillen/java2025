@@ -73,7 +73,7 @@ public class Partida {
     }
 
     public boolean turnoJugador() {
-        boolean bichoMuerto = this.jugador.golpear(this.monstruos.getFirst());
+        boolean bichoMuerto = this.jugador.golpear(this.monstruos.get(0));
         if (bichoMuerto) {
             this.monstruos.remove(0);
             if (this.monstruos.isEmpty()) {
@@ -86,7 +86,7 @@ public class Partida {
 
     public boolean turnoMonstruos() {
         try {
-            return this.monstruos.getFirst().golpear(this.jugador);
+            return this.monstruos.get(0).golpear(this.jugador);
         } catch (NoSuchElementException ex) {
             System.out.println("No hay más monstruos, qué fiera eres");
         }
