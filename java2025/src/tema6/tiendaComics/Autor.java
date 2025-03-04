@@ -1,6 +1,7 @@
 package tema6.tiendaComics;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Autor {
 
@@ -9,6 +10,7 @@ public class Autor {
     private String email;
     private LocalDate fechaNacimiento;
     private Rol rol;
+    private ArrayList<Comic> comics;
 
     public Autor(String nombre, String apellidos, String email, LocalDate fechaNacimiento, Rol rol) {
         this.nombre = nombre;
@@ -16,6 +18,7 @@ public class Autor {
         this.email = email;
         this.fechaNacimiento = fechaNacimiento;
         this.rol = rol;
+        this.comics = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -58,6 +61,33 @@ public class Autor {
         this.rol = rol;
     }
 
+    public ArrayList<Comic> getComics() {
+        return comics;
+    }
+
+
+    /**
+     * Añadir comic al autor
+     * @param comic
+     * @return
+     */
+    public boolean addComic(Comic comic) {
+        if (!this.comics.contains(comic)) {
+            this.comics.add(comic);
+            //Añade este autor a la lista de autores del comic
+            comic.addAutor(this);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean removeComic(Comic comic) {
+        comic.removeAutor(this);
+        return this.comics.remove(comic);
+
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Autor{");
@@ -66,6 +96,7 @@ public class Autor {
         sb.append(", email='").append(email).append('\'');
         sb.append(", fechaNacimiento=").append(fechaNacimiento);
         sb.append(", rol=").append(rol);
+        //sb.append(", comics=").append(comics); // OJO!!
         sb.append('}');
         return sb.toString();
     }

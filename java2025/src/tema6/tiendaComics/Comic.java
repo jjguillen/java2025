@@ -64,21 +64,41 @@ public class Comic {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Comic{");
+        final StringBuffer sb = new StringBuffer("");
         sb.append("id=").append(id);
         sb.append(", titulo='").append(titulo).append('\'');
         sb.append(", fecha=").append(fecha);
         sb.append(", precio=").append(precio);
         sb.append(", numPaginas=").append(numPaginas);
-        sb.append(", autores=").append(autores);
-        sb.append('}');
+        sb.append(", autores=\n"); //OJO!!!
+        for(Autor autor: this.autores) {
+            sb.append(" ")
+                    .append(autor.getNombre())
+                    .append(" ")
+                    .append(autor.getApellidos())
+                    .append("\n");
+        }
         return sb.toString();
     }
 
-    public void addAutor(Autor autor) {
+    /**
+     * Añadir autor al comic
+     * @param autor
+     */
+    public boolean addAutor(Autor autor) {
         if (!this.autores.contains(autor)) {
             this.autores.add(autor);
+            //Añadir a ese autor este comic en su lista
+            autor.addComic(this);
+            return true;
+        } else {
+            return false;
         }
+    }
+
+    public boolean removeAutor(Autor autor) {
+        autor.removeComic(this);
+        return this.autores.remove(autor);
     }
 
 

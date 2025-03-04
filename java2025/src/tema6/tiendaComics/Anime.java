@@ -1,11 +1,10 @@
 package tema6.tiendaComics;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Anime extends Comic {
     private Integer numEpisodio;
-    private String serie;
+    private String serie; //Modelar con series, ...
 
 
     public Anime(String titulo, LocalDate fecha, Double precio, Integer numPaginas,
@@ -34,12 +33,7 @@ public class Anime extends Comic {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Anime{");
-        sb.append("id=").append(id);
-        sb.append(", titulo='").append(titulo).append('\'');
-        sb.append(", fecha=").append(fecha);
-        sb.append(", precio=").append(precio);
-        sb.append(", numPaginas=").append(numPaginas);
-        sb.append(", autores=").append(autores);
+        sb.append(super.toString());
         sb.append(", numEpisodio=").append(numEpisodio);
         sb.append(", serie='").append(serie).append('\'');
         sb.append('}');

@@ -40,6 +40,11 @@ public class Test {
 
         tc.listarComics();
 
+        System.out.println("------------------------");
+        System.out.println(c1);
+        System.out.println(c3);
+
+
 
 
 

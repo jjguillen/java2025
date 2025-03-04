@@ -16,7 +16,7 @@ public class TiendaComics {
             this.comics.add(comic);
             return true;
         } else {
-            return false;
+            return false; //repetido
         }
     }
 

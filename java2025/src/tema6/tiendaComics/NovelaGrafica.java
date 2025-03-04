@@ -1,7 +1,6 @@
 package tema6.tiendaComics;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class NovelaGrafica extends Comic {
     private String resumen;
@@ -24,12 +23,7 @@ public class NovelaGrafica extends Comic {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("NovelaGrafica{");
-        sb.append("id=").append(id);
-        sb.append(", titulo='").append(titulo).append('\'');
-        sb.append(", fecha=").append(fecha);
-        sb.append(", precio=").append(precio);
-        sb.append(", numPaginas=").append(numPaginas);
-        sb.append(", autores=").append(autores);
+        sb.append(super.toString());
         sb.append(", resumen='").append(resumen).append('\'');
         sb.append('}');
         return sb.toString();
