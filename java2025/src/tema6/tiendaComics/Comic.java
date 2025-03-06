@@ -11,14 +11,17 @@ public class Comic {
     protected LocalDate fecha;
     protected Double precio;
     protected Integer numPaginas;
+    protected Integer numEjemplares;
     protected ArrayList<Autor> autores;
 
-    public Comic(String titulo, LocalDate fecha, Double precio, Integer numPaginas) {
+    public Comic(String titulo, LocalDate fecha, Double precio,
+                 Integer numPaginas, Integer numEjemplares) {
         this.id = UUID.randomUUID();
         this.titulo = titulo;
         this.fecha = fecha;
         this.precio = precio;
         this.numPaginas = numPaginas;
+        this.numEjemplares = numEjemplares;
         this.autores = new ArrayList<>();
     }
 
@@ -58,6 +61,14 @@ public class Comic {
         this.numPaginas = numPaginas;
     }
 
+    public Integer getNumEjemplares() {
+        return numEjemplares;
+    }
+
+    public void setNumEjemplares(Integer numEjemplares) {
+        this.numEjemplares = numEjemplares;
+    }
+
     public ArrayList<Autor> getAutores() {
         return autores;
     }
@@ -70,6 +81,7 @@ public class Comic {
         sb.append(", fecha=").append(fecha);
         sb.append(", precio=").append(precio);
         sb.append(", numPaginas=").append(numPaginas);
+        sb.append(", numEjemplares=").append(numEjemplares);
         sb.append(", autores=\n"); //OJO!!!
         for(Autor autor: this.autores) {
             sb.append(" ")
@@ -87,9 +99,10 @@ public class Comic {
      */
     public boolean addAutor(Autor autor) {
         if (!this.autores.contains(autor)) {
-            this.autores.add(autor);
             //Añadir a ese autor este comic en su lista
             autor.addComic(this);
+
+            this.autores.add(autor);
             return true;
         } else {
             return false;

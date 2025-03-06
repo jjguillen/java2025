@@ -7,8 +7,8 @@ public class NovelaGrafica extends Comic {
 
 
     public NovelaGrafica(String titulo, LocalDate fecha, Double precio,
-                         Integer numPaginas, String resumen) {
-        super(titulo, fecha, precio, numPaginas);
+                         Integer numPaginas, Integer numEjemplares, String resumen) {
+        super(titulo, fecha, precio, numPaginas, numEjemplares);
         this.resumen = resumen;
     }
 

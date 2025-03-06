@@ -16,13 +16,13 @@ public class Test {
                 LocalDate.of(2001,1,7), Rol.GUIONISTA);
 
         Anime c1 = new Anime("Anime1", LocalDate.of(2010,2,4),
-                15.85, 125, 2, "Loren Ipsum" );
+                15.85, 125, 10, 2, "Loren Ipsum" );
         Anime c2 = new Anime("Anime2", LocalDate.of(2005,2,4),
-                18.85, 95, 42, "Loren Ipsum" );
+                18.85, 95, 8, 42, "Loren Ipsum" );
         NovelaGrafica c3 = new NovelaGrafica("NG1", LocalDate.of(2001,5,5),
-                35.99, 269, "Loren Ipsum ...");
+                35.99, 269, 5,"Loren Ipsum ...");
         NovelaGrafica c4 = new NovelaGrafica("NG2", LocalDate.of(2008,3,5),
-                41.95, 323, "Loren Ipsum ...");
+                41.95, 323, 10, "Loren Ipsum ...");
 
         //Añadir autor a los comics
         c1.addAutor(d2);
@@ -44,10 +44,45 @@ public class Test {
         System.out.println(c1);
         System.out.println(c3);
 
+        //COMPRA 1 -----------------------------------------------
+        Cliente cl1 = new Cliente("645654564", "cl1@gmail.com",
+                "Manolo López", "Su casa, Vera", "64564564564");
 
+        LineaCompra lc1 = new LineaCompra(c1, 2);
+        LineaCompra lc2 = new LineaCompra(c2, 5);
+        LineaCompra lc3 = new LineaCompra(c2, 2);
+        Venta v1 = new Venta(cl1);
+        v1.addLinea(lc1);
+        v1.addLinea(lc2);
+        v1.addLinea(lc3);
 
+        try {
+            tc.addVenta(v1);
+        } catch (SinStockException e) {
+            System.out.println(e.getMessage());
+        }
 
+        //COMPRA 2 ------------------------------------------------
+        Cliente cl2 = new Cliente("464654564", "cl2@gmail.com",
+                "Isa Pérez", "Su casa, Cuevas", "999999");
 
+        LineaCompra lc4 = new LineaCompra(c1, 2);
+        LineaCompra lc5 = new LineaCompra(c2, 1);
+        Venta v2 = new Venta(cl2);
+        v2.addLinea(lc4);
+        v2.addLinea(lc5);
+
+        try {
+            tc.addVenta(v2);
+        } catch (SinStockException e) {
+            System.out.println(e.getMessage());
+        }
+
+        tc.listarVentas();
+
+        System.out.println("-------------------");
+        System.out.println(tc.buscar(LocalDate.of(2002,1,1),
+                LocalDate.of(2007,1,1)));
 
 
     }

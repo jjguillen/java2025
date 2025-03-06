@@ -8,8 +8,8 @@ public class Anime extends Comic {
 
 
     public Anime(String titulo, LocalDate fecha, Double precio, Integer numPaginas,
-                 Integer numEpisodio, String serie) {
-        super(titulo, fecha, precio, numPaginas);
+                 Integer numEjemplares, Integer numEpisodio, String serie) {
+        super(titulo, fecha, precio, numPaginas, numEjemplares);
         this.numEpisodio = numEpisodio;
         this.serie  = serie;
     }
