@@ -2,11 +2,10 @@ package tema7.conjuntos;
 
 import tema7.listas.ejemploCola.Proceso;
 
-import java.sql.SQLOutput;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Ejemplo {
+public class EjemploHashSet {
     public static void main(String[] args) {
 
         HashSet<Proceso> conjunto = new HashSet<>();
