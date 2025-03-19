@@ -1,4 +1,4 @@
-package tema7.collections.ejemploCola;
+package tema7.listas.ejemploCola;
 
 import java.util.LinkedList;
 

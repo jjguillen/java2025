@@ -1,11 +1,10 @@
-package tema7.collections;
+package tema7.listas;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Ejemplo {
+public class EjemploHashSet {
     public static void main(String[] args) {
 
         List<String> lista = List.of("manzana","pera","plátano");

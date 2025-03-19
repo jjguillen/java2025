@@ -1,4 +1,6 @@
-package tema7.collections.ejemploCola;
+package tema7.listas.ejemploCola;
+
+import java.util.Objects;
 
 public class Proceso {
 
@@ -55,5 +57,18 @@ public class Proceso {
         sb.append(", priority=").append(priority);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Proceso proceso = (Proceso) o;
+        return Objects.equals(pid, proceso.pid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(pid);
     }
 }
