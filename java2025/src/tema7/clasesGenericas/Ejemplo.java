@@ -1,4 +1,4 @@
-package tema7;
+package tema7.clasesGenericas;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class Ejemplo {
 
         Nota<String, Examen> nota1 = new Nota<>("Javier", examen);
         System.out.println(nota1);
-        Nota<String, String> otra = new Nota<>("pepe","nota");
+        Nota<String, String> otra = new Nota<>("pepe","nota=9.8");
         System.out.println(otra);
 
         ArrayList<String> palabras;

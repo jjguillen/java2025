@@ -8,3 +8,6 @@ Esta clase tendrá dos propiedades: nombre y una lista de robots.
 Añade métodos:
 3.1 Para añadir robot a la liga
 3.2 Mostrar participantes de la liga.
+
+Liga, propiedad ArrayList<Robot> equipos --> admite RobotLucha y RobotCarrera
+Liga<T extends Robot> propiedad ArrayList<T> equipos --> una liga solo admite RobotLucha o RobotCarrera, pero no mezclados

@@ -1,4 +1,4 @@
-package tema7;
+package tema7.clasesGenericas;
 
 import java.time.LocalDate;
 
