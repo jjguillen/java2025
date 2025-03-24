@@ -8,8 +8,14 @@ import java.util.TreeSet;
 public class EjemploTreeSet {
     public static void main(String[] args) {
 
-        TreeSet<Proceso> procesosOrdenados =
-                new TreeSet<>(Comparator.comparing(Proceso::getPid).reversed());
+        TreeSet<String> palabras = new TreeSet<>();
+
+        palabras.add("hola");
+        palabras.add("adiós");
+        palabras.add("lluvia");
+        palabras.add("calorcito");
+
+        System.out.println(palabras);
 
 
 

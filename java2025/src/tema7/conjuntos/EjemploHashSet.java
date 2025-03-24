@@ -14,6 +14,8 @@ public class EjemploHashSet {
         //Repetido porque el equals de Proceso utiliza el pid, y tiene el mismo
         conjunto.add(new Proceso(1,"p4","/",3)); //Repetido
         conjunto.add(new Proceso(2,"p2","/",3));
+        conjunto.add(new Proceso(4,"p3","/",3));
+        conjunto.add(new Proceso(3,"p4","/",3));
 
         for(Proceso pr: conjunto) {
             System.out.println(pr);
