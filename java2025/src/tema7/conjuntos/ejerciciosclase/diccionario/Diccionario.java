@@ -1,11 +1,15 @@
 package tema7.conjuntos.ejerciciosclase.diccionario;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 public class Diccionario {
 
+    //LO IMPORTANTE ES QUE EL DICCIONARIO ESTÉ ORDENADO
     private TreeSet<Entrada> palabras;
+
+    //LO IMPORTANTE ES BUSCAR, PERO NO QUE ESTÉ ORDENADO, USARÍAMOS ARRAYLIST
 
     public Diccionario() {
         this.palabras = new TreeSet<>(Comparator.comparing(Entrada::getPalabra));
@@ -46,7 +50,7 @@ public class Diccionario {
         for(Entrada ent: this.palabras) {
             if (ent.getPalabra().equalsIgnoreCase(palabra)) {
                 return ent.getTraduccion();
-            }
+            } // else NOOOOOOOOOOOOOOOOOOO
         }
         return "No encontrado en diccionario";
     }

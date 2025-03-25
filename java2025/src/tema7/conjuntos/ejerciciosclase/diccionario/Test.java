@@ -4,6 +4,7 @@ public class Test {
     public static void main(String[] args) {
 
         Diccionario dic = new Diccionario();
+
         dic.addEntrada(new Entrada("tarde", "afternoon"));
         dic.addEntrada(new Entrada("respuesta", "replay"));
         dic.addEntrada(new Entrada("superficie", "expanse"));

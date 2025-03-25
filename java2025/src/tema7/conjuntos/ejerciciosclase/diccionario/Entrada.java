@@ -2,7 +2,7 @@ package tema7.conjuntos.ejerciciosclase.diccionario;
 
 import java.util.Objects;
 
-public class Entrada {
+public class Entrada implements Comparable<Entrada>{
     private String palabra;
     private String traduccion;
 
@@ -47,5 +47,10 @@ public class Entrada {
     @Override
     public int hashCode() {
         return Objects.hashCode(getPalabra());
+    }
+
+    @Override
+    public int compareTo(Entrada o) {
+        return palabra.compareTo(o.palabra);
     }
 }

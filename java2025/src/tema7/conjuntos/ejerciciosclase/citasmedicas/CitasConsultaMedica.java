@@ -6,6 +6,10 @@ import java.util.Comparator;
 
 public class CitasConsultaMedica {
 
+    //Mejora: hacer esto un HashSet, implemente Equals por Fecha y Hora
+    //Los métodos de búsqueda, hay que pasar el HashSet a un ArrayList temporal
+    //y ordenar ese ArrayList en cada método
+
     private ArrayList<Cita> citas;
 
     public CitasConsultaMedica() {
@@ -22,6 +26,8 @@ public class CitasConsultaMedica {
 
 
     public void addCita(Cita cita) {
+        //Buscar que no haya una cita en esa fecha y esa hora
+
         this.citas.add(cita);
     }
 
@@ -47,6 +53,7 @@ public class CitasConsultaMedica {
                 return o1.getPaciente().getApellidos().compareTo(o2.getPaciente().getApellidos());
             }
         });
+
         for(Cita cita: citas) {
             System.out.println(cita);
         }
@@ -60,7 +67,7 @@ public class CitasConsultaMedica {
                 if (o1.getFecha().equals(o2.getFecha())) {
                     return o1.getPaciente().getApellidos().compareTo(o2.getPaciente().getApellidos());
                 } else {
-                    return o1.getFecha().compareTo(o2.getFecha());
+                    return o1.getFecha().compareTo(o2.getFecha()); //Ordenar por fecha
                 }
             }
         });
@@ -70,6 +77,7 @@ public class CitasConsultaMedica {
     }
 
     public void listarCitasPorHora(LocalDate fecha) {
+        //En un ArrayList auxiliar meto las citas de esa fecha
         ArrayList<Cita> citasEnFecha = new ArrayList<>();
         for(Cita cita: citas) {
             if (cita.getFecha().equals(fecha)) {
@@ -77,6 +85,7 @@ public class CitasConsultaMedica {
             }
         }
 
+        //Una vez tengo el ArrayList con las fechas del día, lo ordeno por hora
         citasEnFecha.sort(Comparator.comparing(Cita::getHora));
         for(Cita cita: citasEnFecha) {
             System.out.println(cita);
