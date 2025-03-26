@@ -1,4 +1,4 @@
-package tema7.torneosGenerica;
+package tema7.clasesGenericas.torneosGenerica;
 
 public class EquipoFPS extends Equipo {
 
