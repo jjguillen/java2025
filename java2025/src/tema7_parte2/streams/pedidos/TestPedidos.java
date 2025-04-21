@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TestPedidos {
@@ -46,9 +47,28 @@ public class TestPedidos {
         //STREAMS ----------------------------------------------------------------------
 
         //1. Muestra los libros cuyo precio sea mayor de 20€
-        Stream.of(prod1,prod2,prod3,prod4,prod5)
+        Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,
+                        prod11,prod12,prod13,prod14,prod15)
+                .filter( pr -> pr.getCategoria().equals(CategoriaProducto.LIBROS))
                 .filter(pr -> pr.getPrecio() > 20)
                 .forEach(System.out::println);
+
+        //2. Muestra los pedidos que tengan algún producto de "Juegos"
+        pedidos.stream()
+                .filter(ped -> ped.getProductos().stream()
+                        .anyMatch(pr -> pr.getCategoria().equals(CategoriaProducto.JUEGOS))
+                )
+                .forEach(p -> {
+                    System.out.println(p.getId());
+                });
+
+        //3. Genera una lista con todos los Productos, pero cambia su precio para que lleven un 10%
+        //de descuento
+        List<Producto> productosDescuento = Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,
+                prod11,prod12,prod13,prod14,prod15)
+                .peek( pr -> pr.setPrecio(pr.getPrecio() * 0.9))
+                .toList();
+        productosDescuento.forEach(System.out::println);
 
 
 
