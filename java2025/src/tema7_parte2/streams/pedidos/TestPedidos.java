@@ -1,10 +1,8 @@
 package tema7_parte2.streams.pedidos;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.Month;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,9 +31,9 @@ public class TestPedidos {
         Producto prod15 = new Producto(15L, "Periferico5", CategoriaProducto.PERIFERICOS, 59.95);
 
         Pedido ped1 = new Pedido(1L, c1, EstadoPedido.RECIBIDO, LocalDate.now().minusDays(5),null);
-        Pedido ped2 = new Pedido(2L, c2, EstadoPedido.RECIBIDO, LocalDate.now().minusDays(20), null);
+        Pedido ped2 = new Pedido(2L, c2, EstadoPedido.RECIBIDO, LocalDate.now(), null);
         Pedido ped3 = new Pedido(3L, c3, EstadoPedido.RECIBIDO, LocalDate.now().minusDays(7), null);
-        Pedido ped4 = new Pedido(4L, c1, EstadoPedido.RECIBIDO, LocalDate.now().minusDays(2), null);
+        Pedido ped4 = new Pedido(4L, c1, EstadoPedido.RECIBIDO, LocalDate.now(), null);
 
         ped1.setProductos(new HashSet<>( List.of(prod1, prod3, prod5, prod10)));
         ped2.setProductos(new HashSet<>( List.of(prod2, prod4, prod8, prod12)));
@@ -69,6 +67,102 @@ public class TestPedidos {
                 .peek( pr -> pr.setPrecio(pr.getPrecio() * 0.9))
                 .toList();
         productosDescuento.forEach(System.out::println);
+
+        System.out.println("----------------------");
+
+        //4. Saca los productos que aparecen en los pedidos de clientes de nivel 2, realizados entre
+        //el 01-04-2025 y el 01-05-2025.
+        pedidos.stream()
+                .filter( ped -> ped.getCliente().getNivel() == 2)
+                .filter( ped -> ped.getFechaPedido().isAfter(LocalDate.of(2025,4,1))
+                    && ped.getFechaPedido().isBefore(LocalDate.of(2025,5,1)))
+                .flatMap(ped -> ped.getProductos().stream())
+                .distinct()
+                .forEach(System.out::println);
+
+        System.out.println("----------------------");
+        //5. Muestra el producto más caro de la categoría Juegos
+        Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,
+                prod11,prod12,prod13,prod14,prod15)
+                .filter(pr -> pr.getCategoria().equals(CategoriaProducto.JUEGOS))
+                .sorted(Comparator.comparing(Producto::getPrecio).reversed())
+                .limit(1)
+                .forEach(System.out::println);
+
+        Producto juegoCaro = Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,
+                        prod11,prod12,prod13,prod14,prod15)
+                .filter(pr -> pr.getCategoria().equals(CategoriaProducto.JUEGOS))
+                .max(Comparator.comparing(Producto::getPrecio))
+                .orElse(null);
+        System.out.println(juegoCaro);
+
+        System.out.println("--------------");
+        //6. Devuelve los dos pedidos más recientes
+        pedidos.stream()
+                .sorted(Comparator.comparing(Pedido::getFechaPedido).reversed())
+                .limit(2)
+                .forEach(System.out::println);
+
+        System.out.println("--------------------");
+        //7. Muestra los pedidos hechos hoy, debe aparecer el pedido y debajo la lista de productos
+        //de ese pedido
+        pedidos.stream()
+                .filter(ped -> ped.getFechaPedido().equals(LocalDate.now()))
+                .forEach(ped -> {
+                    System.out.println(ped);
+                    ped.getProductos().stream().forEach(System.out::println);
+                });
+
+        System.out.println("xxxxx");
+        pedidos.stream()
+                .filter(ped -> ped.getFechaPedido().equals(LocalDate.now()))
+                .peek(System.out::println)
+                .flatMap(ped -> ped.getProductos().stream())
+                .forEach(System.out::println); //Pinta todos los productos de esos pedidos
+
+        System.out.println("------------------------");
+        //8. Calcula el total de todos los pedidos de abril de 2025
+        Double totalAbril = pedidos.stream()
+                .filter(ped -> ped.getFechaPedido().getMonth().equals(Month.APRIL))
+                //.peek(ped -> System.out.println(ped.getId()))
+                .flatMap(ped -> ped.getProductos().stream())
+                //.peek( prod -> System.out.println(prod.getId() + "-" + prod.getPrecio()))
+                .mapToDouble(Producto::getPrecio)
+                .sum();
+        System.out.println("Total pedidos Abril= " + totalAbril);
+
+        System.out.println("-----------------------");
+        //9. Obtén una colección de estadísticas de los Juegos: número, media, máximo, mínimo,
+        //total
+        DoubleSummaryStatistics dss = Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,
+                prod11,prod12,prod13,prod14,prod15)
+                .filter(pr -> pr.getCategoria().equals(CategoriaProducto.JUEGOS))
+                .mapToDouble(Producto::getPrecio)
+                .summaryStatistics();
+
+        DoubleSummaryStatistics dss2 = Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,
+                prod11,prod12,prod13,prod14,prod15)
+                .filter(pr -> pr.getCategoria().equals(CategoriaProducto.JUEGOS))
+                .collect(Collectors.summarizingDouble(Producto::getPrecio));
+
+        System.out.println("Número: " + dss2.getCount());
+        System.out.println("Media: " + dss2.getAverage());
+        System.out.println("Max: " + dss2.getMax());
+        System.out.println("Min: " + dss2.getMin());
+        System.out.println("Total: " + dss2.getSum());
+
+        System.out.println("-----------------------");
+        //10. Genera un Map<Long, Integer> donde como clave aparezca el id de pedido y como
+        //valor el número de productos en el pedido
+        Map<Long, Integer> pedidoCount = pedidos.stream()
+                .collect(Collectors.toMap(Pedido::getId, ped -> ped.getProductos().size()));
+        pedidoCount.forEach( (k,v) -> System.out.println(k + ": " + v));
+
+
+
+
+
+
 
 
 
