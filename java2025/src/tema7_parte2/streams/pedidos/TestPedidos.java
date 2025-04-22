@@ -169,6 +169,8 @@ public class TestPedidos {
                                 .sum()));
         pedidosTotal.forEach((k,v) -> System.out.println(k.getId() + ": "+ v));
 
+        HashMap<Pedido, Double> pedidosTotalMutable = new HashMap<>(pedidosTotal);
+
         System.out.println("--------------------");
         //12. Genera un Map<String, List<Producto>> con la clave la categoría, y el valor los
         //productos de esa categoría.
@@ -189,6 +191,27 @@ public class TestPedidos {
 
         categoriaMasCaro.forEach((k,v) ->
                 System.out.println(k + " -> " + v.orElse(null)));
+
+
+        boolean encontrado = false;
+        for(Producto p: productosDescuento) {
+            if (p.getCategoria().equals(CategoriaProducto.LIBROS)) {
+                encontrado = true;
+                break;
+            }
+
+            //else
+            //    encontrado = false;
+        }
+        System.out.println(encontrado);
+
+        encontrado = productosDescuento.stream()
+                .anyMatch(pr -> pr.getCategoria().equals(CategoriaProducto.LIBROS));
+
+        ArrayList<Producto> nuevaLista = new ArrayList<>(Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,prod11,prod12,prod13,prod14,prod15)
+                .toList());
+        nuevaLista.remove(2);
+
 
 
     }
