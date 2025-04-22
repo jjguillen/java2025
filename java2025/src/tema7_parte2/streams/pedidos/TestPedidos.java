@@ -3,6 +3,7 @@ package tema7_parte2.streams.pedidos;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,7 +27,7 @@ public class TestPedidos {
         Producto prod10 = new Producto(10L, "Juego5", CategoriaProducto.JUEGOS, 69.95);
         Producto prod11 = new Producto(11L, "Periferico1", CategoriaProducto.PERIFERICOS, 19.95);
         Producto prod12 = new Producto(12L, "Periferico2", CategoriaProducto.PERIFERICOS, 27.95);
-        Producto prod13 = new Producto(13L, "Periferico3", CategoriaProducto.PERIFERICOS, 32.95);
+        Producto prod13 = new Producto(13L, "Periferico3", CategoriaProducto.PERIFERICOS, 132.95);
         Producto prod14 = new Producto(14L, "Periferico4", CategoriaProducto.PERIFERICOS, 45.95);
         Producto prod15 = new Producto(15L, "Periferico5", CategoriaProducto.PERIFERICOS, 59.95);
 
@@ -158,15 +159,36 @@ public class TestPedidos {
                 .collect(Collectors.toMap(Pedido::getId, ped -> ped.getProductos().size()));
         pedidoCount.forEach( (k,v) -> System.out.println(k + ": " + v));
 
+        System.out.println("-----------------------");
+        //11. Genera un Map<Pedido, Double> donde la clave sea cada pedido y el valor sea el total
+        //del pedido.
+        Map<Pedido,Double> pedidosTotal = pedidos.stream()
+                .collect(Collectors.toMap(Function.identity(), ped ->
+                        ped.getProductos().stream()
+                                .mapToDouble(Producto::getPrecio)
+                                .sum()));
+        pedidosTotal.forEach((k,v) -> System.out.println(k.getId() + ": "+ v));
 
+        System.out.println("--------------------");
+        //12. Genera un Map<String, List<Producto>> con la clave la categoría, y el valor los
+        //productos de esa categoría.
+        Map<CategoriaProducto, List<Producto>> productosByCategoria = Stream.of(prod1,prod2,prod3,
+                        prod4,prod5,prod6,prod7,prod8,prod9,prod10,prod11,prod12,prod13,prod14,prod15)
+                .collect(Collectors.groupingBy(Producto::getCategoria));
+        productosByCategoria.forEach((k,v) -> {
+            System.out.print(k + " -> ");
+            v.stream().forEach( pr -> System.out.print(pr.getId() + ", "));
+            System.out.println();
+        });
 
+        System.out.println("-----------------------");
+        //13. Saca el producto más caro de cada categoría
+        Map<CategoriaProducto, Optional<Producto>> categoriaMasCaro = Stream.of(prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8,prod9,prod10,prod11,prod12,prod13,prod14,prod15)
+                .collect(Collectors.groupingBy(Producto::getCategoria,
+                        Collectors.maxBy(Comparator.comparing(Producto::getPrecio))));
 
-
-
-
-
-
-
+        categoriaMasCaro.forEach((k,v) ->
+                System.out.println(k + " -> " + v.orElse(null)));
 
 
     }
