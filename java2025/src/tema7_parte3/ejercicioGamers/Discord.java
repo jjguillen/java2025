@@ -63,6 +63,7 @@ public class Discord {
 
     public void saveGamers() {
         try {
+
             Files.write(Paths.get("src/tema7_parte3/ejercicioGamers/gamers.csv"),
                     jugadores.stream()
                             .map(g -> g.toString())
