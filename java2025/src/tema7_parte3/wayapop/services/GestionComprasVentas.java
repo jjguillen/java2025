@@ -17,6 +17,10 @@ public class GestionComprasVentas {
         this.transacciones = new ArrayList<>();
     }
 
+    public void setVentasUsuarios(Set<VentasUsuario> ventasUsuarios) {
+        this.ventasUsuarios = ventasUsuarios;
+    }
+
     public void addUsuario(VentasUsuario usuario) {
         this.ventasUsuarios.add(usuario);
     }

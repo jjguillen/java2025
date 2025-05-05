@@ -108,13 +108,11 @@ public class Usuario {
         if (o == null || getClass() != o.getClass()) return false;
 
         Usuario usuario = (Usuario) o;
-        return Objects.equals(getId(), usuario.getId()) && Objects.equals(getDni(), usuario.getDni());
+        return Objects.equals(getId(), usuario.getId());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(getId());
-        result = 31 * result + Objects.hashCode(getDni());
-        return result;
+        return Objects.hashCode(getId());
     }
 }
