@@ -93,7 +93,30 @@ public class FileUtils {
         gcv.setVentasUsuarios(usuariosVentas);
 
         //Cargar compras
+        try {
+            Files.lines(Paths.get("resources/compras.csv"))
+                    .forEach(linea -> {
+                        List<String> tokens = Arrays.asList(linea.split(","));
+                        String idUsuario = tokens.get(0);
+                        String idProducto = tokens.get(1);
 
+                        Usuario user = usuarios.stream()
+                                .filter(u -> u.getId().equals(idUsuario))
+                                .findFirst()
+                                .orElse(null);
+
+                        Producto2Mano product = productos.stream()
+                                .filter(p -> p.getId().equals(idProducto))
+                                .findFirst()
+                                .orElse(null);
+
+                        //Añade la compra que hay en el fichoer a GestionComprasVentas
+                        gcv.realizarCompra(user, product);
+                    });
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
         return gcv;

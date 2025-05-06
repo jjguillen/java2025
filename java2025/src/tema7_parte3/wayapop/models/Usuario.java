@@ -115,4 +115,5 @@ public class Usuario {
     public int hashCode() {
         return Objects.hashCode(getId());
     }
+
 }
