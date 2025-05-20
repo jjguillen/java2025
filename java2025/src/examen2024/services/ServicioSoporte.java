@@ -60,10 +60,16 @@ public class ServicioSoporte {
 
     public void removeUsuario(Long id) {
         usuarios.removeIf(usuario -> usuario.getId().equals(id));
+        tickets.removeIf(ticket -> ticket.getUsuario().getId().equals(id));
     }
 
     public void removeTecnico(Long id) {
         tecnicos.removeIf(tecnico -> Objects.equals(tecnico.getId(), id));
+        tickets.removeIf(ticket -> ticket.getTecnico().getId().equals(id));
+    }
+
+    public void addTicketSoporte(TicketSoporte tiso) {
+        tickets.add(tiso);
     }
 
     public void addTicketSoporte(LocalDate fechaCreacion, LocalDate fechaFinalizacion,
